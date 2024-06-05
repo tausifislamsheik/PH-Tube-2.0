@@ -21,21 +21,21 @@ const handleCategoryData = async (categoryId) =>{
   const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
   const data = await res.json();
    const cardContainer = document.getElementById('card-container');
-   data.data.forEach(card =>{
+   data.data?.forEach(card =>{
     console.log(card)
     const div = document.createElement('div');
     div.innerHTML = `
-     <figure><img src="${card?.thumbnail}" alt="Shoes" /></figure>
-    <div class="card-body">
-      <h2 class="card-title">
-        Shoes!
-        <div class="badge badge-secondary">NEW</div>
-      </h2>
-      <p>If a dog chews shoes whose shoes does he choose?</p>
-      <div class="card-actions justify-end">
-        <div class="badge badge-outline">Fashion</div> 
-        <div class="badge badge-outline">Products</div>
-      </div>
+     <figure><img class="h-[200px] rounded-lg" src="${card?.thumbnail}" alt="Shoes" /></figure>
+    <div class="flex m-4 gap-2">
+       <div>
+        <img class="rounded-full w-12 h-12" src="${card?.authors[0]?.profile_picture}" alt="Shoes" />
+       </div>
+       <div>
+         <p class="font-bold">${card?.title}</p>
+         <h1>${card?.authors[0]?.profile_name} <span>${card.authors[0].verified ? '<i class="fa-solid fa-circle-check text-blue-500 ml-2"></i>' : ""}</span></h1>
+         <p>${card?.others.views}</p>
+       </div>
+
     </div> 
     `
     cardContainer.appendChild(div);
