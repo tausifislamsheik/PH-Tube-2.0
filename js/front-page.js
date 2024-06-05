@@ -21,6 +21,7 @@ const handleCategoryData = async (categoryId) =>{
   const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
   const data = await res.json();
    const cardContainer = document.getElementById('card-container');
+   cardContainer.innerHTML = "";
    data.data?.forEach(card =>{
     console.log(card)
     const div = document.createElement('div');
@@ -47,4 +48,5 @@ const handleCategoryData = async (categoryId) =>{
 
 
 handleCategory();
+handleCategoryData("1000");
 
