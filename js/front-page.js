@@ -7,7 +7,7 @@ const handleCategory = async () =>{
       const div = document.createElement('div');
       div.innerHTML = `
       
-      <button onclick="handleCategoryData('${category.category_id}')" class="btn btn-outline hover:bg-red-600">${category.category}</button>
+      <button onclick="handleCategoryData('${category.category_id}')" class="btn btn-outline hover:bg-red-600 tab focus:bg-red-600 focus:text-white">${category.category}</button>
       
     </div>
       
@@ -60,8 +60,6 @@ const handleCategoryData = async (categoryId) =>{
    }
    
 }
-
-
 
 
 
